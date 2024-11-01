@@ -6,11 +6,11 @@ import seaborn as sns
 import yfinance as yf
 
 # Dates for daily price data pull
-START = datetime(2017, 1, 1)
+START = datetime(2019, 1, 1)
 END = datetime.today()
 # Sample stock list
-PORTFOLIO = ['FFIDX', 'FFRHX', 'FPHAX', 'FSENX', 'FSPSX', 'FSPTX', 'FTQGX',
-             'FWWFX', 'IVV']
+PORTFOLIO = ['FFIDX', 'FFRHX', 'FPHAX', 'FSENX', 'FSPSX', 'FSPTX',
+             'FWWFX', 'IVV', 'JPM', 'C']
 
 
 # Make an array for the daily prices for each ticker
@@ -38,6 +38,7 @@ def pivot_table(df):
 def correlate(pivot):
     corr_df = pivot.corr(method='pearson')
     corr_df.head().reset_index()
+    corr_df.head(10)
     return corr_df
 
 
